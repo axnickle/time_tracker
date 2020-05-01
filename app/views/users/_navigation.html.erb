@@ -1,0 +1,19 @@
+<!-- _navigation.html.erb -->
+<!--to show register link, when logged out -->
+
+<% if logged_in? %>
+  <div class='nav_item'>
+    <%= link_to 'New Post', new_post_path, class: 'btn btn-success btn-small' %>
+  </div>
+    <div class='nav_item'>
+    <%= link_to 'Log out', logout_path, class: 'btn btn-small' %>
+  </div>
+<% else # logged out %>
+  <div class='nav_item'>
+    <%= link_to 'Log in', login_path, class: 'btn btn-small' %>
+  </div>
+
+  <div class="nav_item">
+    <%= link_to "Register", register_path, class: "btn btn-success btn-small" %>
+  </div>
+<% end %>
