@@ -1,0 +1,2 @@
+class TaskEntry < ApplicationRecord
+end
