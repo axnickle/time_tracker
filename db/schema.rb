@@ -24,23 +24,23 @@ ActiveRecord::Schema.define(version: 2020_05_02_020555) do
 
   create_table "projects", force: :cascade do |t|
     t.string "project_name"
-    t.string "customer_id"
+    t.integer "customer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "task_entries", force: :cascade do |t|
-    t.string "task_id"
+    t.integer "task_id"
     t.integer "duration"
     t.string "note"
-    t.integer "start_time"
+    t.datetime "start_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string "project_id"
-    t.string "user_id"
+    t.integer "project_id"
+    t.integer "user_id"
     t.string "task_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -1,5 +1,6 @@
 class User < ApplicationRecord #validation
 
+  has_many :tasks
 
   has_secure_password #validations: false
       #validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
