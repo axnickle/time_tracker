@@ -1,14 +1,26 @@
-<!-- non-model backed form -->
-<div class='well'>
-<%= form_tag '/login' do %>
-  <div class='control-group'>
-  <%= label_tag :username %>
-  <%= text_field_tag :username %>
+<% provide(:title, "Log in") %>
+<h1>Log in</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+      <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= link_to "(forgot password)", password_resets_new_path%>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span>Remember me on this computer</span>
+      <% end %>
+      <%= f.submit "Log in", class: "btn btn-primary" %>
+    <% end %>
+
+    <!-- 1st parameter- what do you want it do display?  2nd parameter - where do you
+      want it to go -->
+    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
   </div>
-  <div class='control-group'%>
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-  </div>
-  <%= submit_tag 'Login', class: 'btn btn-success' %>
-<% end %>
 </div>
