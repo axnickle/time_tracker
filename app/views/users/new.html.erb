@@ -1,9 +1,10 @@
+<% provide(:title, 'Sign up') %>
 <h1>Sign up</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_with(model: @user, local: true) do |f| %>
-      <%= render 'shared/error_messages' %>
+    <%= form_with(model: @user, local: true) do |f| %> <!-- follow pattern for sessions_controller -->
+      <%= render 'shared/error_messages' %> <!-- displays error messages on the signup form -->
 
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
