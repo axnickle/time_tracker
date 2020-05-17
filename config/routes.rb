@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root "pages#show", page: "home"
   get '/about',     to: 'pages#about' # do I want this page?
   get '/features',  to: 'pages#features' # do I want this page?
-  get '/home',  to: 'pages#home' # is this necessary?
+  get '/home',  to: 'pages#home'
   #get '/register', to: 'users#new' # manually mapping user registration to /register instead of /users/new -> therefore not listed under resources
   get '/signup',    to: 'users#new'
   get '/login',     to: 'sessions#new' # links to log in; page for a new session (login)
