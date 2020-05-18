@@ -1,0 +1,10 @@
+<h1>List all customers</h1>
+
+<div>
+  <!-- w/o '='- no data -->
+  <% @customers.each do |customer| %> <!--|customer| gives access to each one fo the customers table -->
+    <div>
+      <%= customer.company %>
+    </div>
+  <% end %>
+</div>

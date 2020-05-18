@@ -1,0 +1,9 @@
+<h1>Lisitng all task entries </h1>
+
+<div>
+  <% @task_entries.each do |task_entry| %>
+    <div>
+      <%= task_entry.task_id %>
+    </div>
+    <% end %>
+</div>

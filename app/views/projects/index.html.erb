@@ -1,0 +1,9 @@
+<h1>Listing all projects</h1>
+
+<div>
+  <% @projects.each do |project| %> <!-- individual project -->
+    <div>
+      <%= project.project_name%>
+    </div>
+  <% end %>
+</div>

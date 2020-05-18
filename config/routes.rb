@@ -14,7 +14,13 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :create, :edit, :update] #note we don't want an index route to show all users
   resources :password_resets,     only: [:new, :create, :edit, :update]
   # resources :account_activations, only: [:edit] #add a route for the account activations 'edit' action
-
+  resources :customers # 'resouce' refers to the controller; all the RESTful routes map to companies
+  resources :projects
+  resources :tasks
+  resources :task_entries
+  
+  #get 'tasks', to : 'sessions#tasks' #trying to display drop down of list of tasks
+  #resources :tasks
 end
 
 
