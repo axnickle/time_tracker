@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :projects
   resources :tasks
   resources :task_entries
-  
+
   #get 'tasks', to : 'sessions#tasks' #trying to display drop down of list of tasks
   #resources :tasks
 end

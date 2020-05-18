@@ -1,10 +1,18 @@
 <h1>Listing all tasks</h1>
 
-<div>
+<!-- <div>
     <% @tasks.each do |task| %> <!--|task| gives access to each one of the task table -->
     <div>
     <%= task.project_id%>
-    <%#= user_id%> <!-- ? -->
+    <%= user_id%> <!-- ? -->
     </div>
   <% end %>
+</div> -->
+
+<div>
+  <% (1..50).each do |i| %>
+  <div>
+    <%= i %>
+  </div>
+<% end %>
 </div>
