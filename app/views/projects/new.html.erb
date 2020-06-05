@@ -1,0 +1,21 @@
+<% provide(:title, 'New Project') %>
+<!-- allow user to create new project -->
+<h1>New Project</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: @project, local: true) do |f| %> <!-- follow pattern for sessions_controller -->
+
+      <%= f.label :project_name %>
+      <%= f.text_field :project_name, class: 'form-control' %>
+      <!-- why does view display "Customer" and not "customer_id"? -->
+      <%= f.label "customers" %>
+      <%#= f.select(:customer, :customer_id, Customer.all.collect {|c| [ c.company, c.id ] }) %>
+      <%= f.collection_select(:customer_id, Customer.all, :id, :company, :prompt => 'Select') %>
+      <div>
+
+      <%= f.submit "Create new project", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,18 +1,41 @@
-<h1>Listing all tasks</h1>
+<p id="notice"><%= notice %></p>
+<h1>Tasks</h1>
+
+
+<%= link_to 'New Task', new_task_path %>
+<table>
+    <thead>
+        <tr>
+          <th>Task Name</th>
+          <th>Project Name</th>
+          <th>Company Name</th>
+          <th>Duration</th>
+          <th colspan="3"></th>
+        </tr>
+    </thead>
+
+    <tbody> <!-- need to have header to tell what data displaying; which company is't for? -->
+      <% @tasks.each do |task| %> <!--|task| gives access to each one of the task table -->
+        <tr>
+          <td><%= task.task_name%></td>
+          <td><%= task.project.project_name%></td>
+          <td><%= task.project.customer.company%></td>
+          <td><%= "#{task.total_duration} minutes" %></td>
+          <td><%= link_to 'Show', task %></td>
+          <td><%= link_to 'Edit', edit_task_path(task) %></td>
+          <td><%#= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+       <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
 
 <!-- <div>
-    <% @tasks.each do |task| %> <!--|task| gives access to each one of the task table -->
-    <div>
-    <%= task.project_id%>
-    <%= user_id%> <!-- ? -->
-    </div>
-  <% end %>
-</div> -->
-
-<div>
-  <% (1..50).each do |i| %>
+  <#% (1..50).each do |i| %>
   <div>
-    <%= i %>
+    <%#= i %>
   </div>
-<% end %>
-</div>
+<%# end %>
+</div> -->

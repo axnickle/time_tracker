@@ -1,10 +1,26 @@
-<h1>List all customers</h1>
+<p id="notice"><%= notice %></p>
+<h1>Current Customers</h1>
 
-<div>
-  <!-- w/o '='- no data -->
-  <% @customers.each do |customer| %> <!--|customer| gives access to each one fo the customers table -->
-    <div>
-      <%= customer.company %>
-    </div>
-  <% end %>
-</div>
+<%= link_to 'New Customer', new_customer_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Customers</th>
+       <th colspan="3"></th>
+      </tr>
+  </thead>
+
+  <tbody>
+    <!-- w/o '='- no data -->
+    <% @customers.each do |customer| %> <!--|customer| gives access to each one fo the customers table -->
+      <tr>
+      <td><%= customer.company %></td>
+      <td><%= link_to 'Show', customer %></td>
+      <td><%= link_to 'Edit', edit_customer_path(customer) %></td> <!-- link to edit-->
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

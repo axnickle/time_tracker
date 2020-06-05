@@ -3,11 +3,25 @@
     <%#= link_to "#", root_path %>
     <nav>
       <div class="navbar-header" style="text-align: right;">
-         <%= link_to "customers", customers_path %> |
-         <%= link_to "projects", projects_path %> |
-         <%= link_to "tasks", tasks_path %> |
-         <%= link_to "task_entries", task_entries_path %> |
-         <%= link_to "Log in", login_path %>
+             <!-- "==" booleans -->
+         <% unless controller_name == "customers" %>
+          <%= link_to "customers", customers_path %> |
+         <% end %>
+
+         <% unless controller_name == "projects" %>
+          <%= link_to "projects", projects_path %> |
+        <% end %>
+
+        <% unless controller_name == "tasks" %>
+          <%= link_to "tasks", tasks_path %> |
+        <% end %>
+
+        <% unless controller_name == "task_entries" %>
+         <%#= link_to "task_entries", task_entries_path %> |
+        <% end %>
+
+         <%= link_to "Log in", login_path %> |
+         <%= link_to "users", users_path %> |
       </div>
     </nav>
   </div>

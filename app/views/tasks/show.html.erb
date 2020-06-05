@@ -1,0 +1,49 @@
+<% provide(:title, "Tasks") %> <!-- describe data lin 5 -11 ; in table form -->
+<div>
+  <strong>Project Id:</strong>
+  <%= @task.project_id %>
+</div>
+<br>
+<div>
+  <strong>Username:</strong>
+<!-- tasks belongs_to :user -->
+  <%= @task.user.name%> <!--name according to data model -->
+</div>
+<br>
+<div>
+  <strong>Project Name:</strong>
+<!-- tasks belongs_to :project -->
+  <%= @task.project.project_name %>
+  </div>
+  <br>
+  <div>
+    <strong>Task Entry:</strong>
+  </div>
+<!-- tasks has_many :task_entry -->
+  <% @task.task_entries.each do |task_entry| %> <!-- "entries" -->
+    <br>
+    <div>
+      &ensp;<strong>Time Entry ID:</strong>
+      <%= task_entry.id %> &ensp;
+      <br>
+      <strong>Note:</strong>
+      <%= task_entry.note %>
+      <br>
+      <strong>Start Time:</strong> &ensp;
+      <%= task_entry.start_time %>
+      <strong>End Time:</strong> &ensp;
+      <%= task_entry.stop_time %>
+      <strong>Duration:</strong> &ensp;
+      <%= task_entry.duration %>
+      <br>
+      <% if task_entry.duration.nil? %> <!-- start is a 'create' -->
+        <%= button_to 'Stop Time Entry', task_task_entry_path(@task, task_entry), method: :put %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div>
+    <% unless @task.has_running_task_entries? %> <!-- start is a 'create' -->
+      <%= button_to 'Start Time Entry', task_task_entries_path(@task), method: :post %>
+    <% end %>
+  </div>

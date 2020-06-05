@@ -1,0 +1,29 @@
+<% provide(:title, 'New Time Entry') %>
+<h1>New Time Entry</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: @task_entry, local: true) do |f| %> <!-- follow pattern for sessions_controller -->
+
+      <%= f.label :task_id %> <!-- drop down menu NOT working-->
+      <%= f.collection_select(:task_id, Task.all, :id, :project_id, :prompt => 'Select') %>
+      <%#= f.collection_select(:project_id, Project.all, :id, :name_with_company, :prompt => 'Select') %>
+      <%#= f.text_field :task_id, class: 'form-control' %>
+
+      <%= f.label :note %>
+      <%= f.text_field :note, class: 'form-control' %>
+
+      <%= f.label :start_time %>
+      <%= f.text_field :start_time, class: 'form-control' %>
+
+      <%= f.label :stop_time %>
+      <%= f.text_field :stop_time, class: 'form-control' %>
+
+      <%= f.label :duration %>
+      <%= f.text_field :duration, class: 'form-control' %>
+
+      <%= f.submit "Create New Time Entry", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

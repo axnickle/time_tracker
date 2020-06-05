@@ -1,0 +1,43 @@
+<% provide(:title, "List of customers") %>
+<!--<h1>Customer</h1> -->
+
+<div>
+  <strong>Company:</strong>
+  <%= @customer.company %>
+</div>
+
+<div style="padding-left:80px;">
+    <%= @customer.address1 %>
+<div style="padding-left:10px;">
+    <%= @customer.address2 %>
+</div>
+  <div> <!--grouping -->
+    <%= @customer.city %>
+    <%= @customer.state + "," %>
+    <%= @customer.zip %>
+  </div>
+</div>
+  <br>
+<div>
+  <strong>
+  Description:
+  </strong>
+  <%= @customer.description %>
+</div>
+<br>
+<!-- has_many :projects -->
+<div>
+  <strong>
+  Projects:
+  </strong>
+    <ul>
+      <% @customer.projects.each do |p| %><!-- |p| is a specific project -->
+        <li>
+          <%#=p.project_name %>
+          <%= link_to p.project_name, p %> <!--2nd "p" is where the link going to -->
+        </li>
+      <% end %>
+    </ul>
+</div>
+<!-- customer model -->
+<!-- has_many :projects -->

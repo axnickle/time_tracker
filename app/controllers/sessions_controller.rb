@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
       log_in(user) #calling line 5 in sessions helper; () optional
       #params[:remember_me] == '1' ? remember(user) : forget(user)
       flash[:notice] = "Welcome, you've logged in."
-      redirect_back_or user #user should be able to start log in time after logging in
+      # after login, direct user to the customers index
+      redirect_back_or customers_path #user should be able to start log in time after logging in
       #redirect_to root_path
     else
       flash[:error] = "There is something wrong with your email or password."

@@ -1,0 +1,28 @@
+<% provide(:title, "List of projects") %>
+<!-- showing individual project -->
+<p>
+  <strong>Project:</strong>
+  <%= @project.project_name %>
+</p>
+
+<p>
+  <strong>Tasks:</strong>
+    <!-- has_many :tasks -->
+  <% @project.tasks.each do |p| %>
+</p>
+
+<p>
+  <strong>Project Id:</strong>
+  <%= p.project_id %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <!-- belongs_to :customer -->
+  <%= @project.customer.company %>
+</p>
+
+<p> <!-- activates the 'edit' button from /projects -->
+  <% link_to @project.customer.company, p %>
+</p>

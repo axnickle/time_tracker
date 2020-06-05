@@ -1,0 +1,22 @@
+<% provide(:title, 'Edit Task') %>
+<h1>Edit Task</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: @task, local: true) do |f| %> <!-- follow pattern for sessions_controller -->
+
+      <%= f.label :project_name%> <!-- drop down menu -->
+      <%= f.collection_select(:project_id, Project.all, :id, :name_with_company, :prompt => 'Select') %>
+
+      <%= f.label :task_name %>
+      <%= f.text_field :task_name, class: 'form-control' %>
+      <div>
+
+      <%= f.submit "Save Task", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<!-- in the taks model - project_id, user_id, task_name -->
+<!-- we just need to "edit" the task; however we do want the information for project + company -->
